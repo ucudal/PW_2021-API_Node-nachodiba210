@@ -14,15 +14,22 @@ app.get('/experiencia-laboral', function(req, res) {
         "empresa": "Parroquia Santa Rita",
         "descripcion": "Lider animador en la parroquia santa rita, donde cuidaba un grupo de 30 niños",
         "puesto": "Animador Lider",
-        "fecha_inicio": "01-07-2016",
-        "fecha_fin": "01-12-2018"
+        "fechaInicio": "01-07-2016",
+        "fechaFin": "01-12-2018"
       },
       {
         "empresa": "EagerWorks",
         "descripcion": "Empresa de software dedicada a crear software a medida para empresas extranjeras y locales. Su foco principal es la creacion de applicaciones web y mobiles y el lenguaje de uso es Ruby",
         "puesto": "Full Stack Developer",
-        "fecha_inicio": "16-07-2020",
-        "fecha_fin": "Present"
+        "fechaInicio": "16-07-2020",
+        "fechaFin": "Present"
+      },
+      {
+        "empresa": "Profesor Paricular",
+        "descripcion": "Profesor particular de programacion 1",
+        "puesto": "Profesor",
+        "fechaInicio": "16-07-2021",
+        "fechaFin": "Present"
       }
     ]
   }
