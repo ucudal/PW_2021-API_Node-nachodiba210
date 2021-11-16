@@ -20,7 +20,7 @@ describe("Endpoint /experiencia-laboral (GET)", function() {
       .expect(200)
       .end(function(err, res) {
         if (err) throw done(err);
-        assert.ok(res.body["experiencia_laboral"].length > 2);
+        assert.ok(res.body["experiencia-laboral"].length > 2);
         done();
       });
   });
@@ -31,7 +31,7 @@ describe("Endpoint /experiencia-laboral (GET)", function() {
       .expect(200)
       .end(function(err, res) {
         if (err) throw done(err);
-        res.body["experiencia_laboral"].forEach((exp, index) => {
+        res.body["experiencia-laboral"].forEach((exp, index) => {
           assert.ok(exp.empresa !== undefined, `el objeto en la posición ${index} no tiene la propiedad empresa`);
           assert.ok(exp.puesto !== undefined, `el objeto en la posición ${index} no tiene la propiedad puesto`);
           assert.ok(exp.descripcion !== undefined, `el objeto en la posición ${index} no tiene la propiedad descripcion`);

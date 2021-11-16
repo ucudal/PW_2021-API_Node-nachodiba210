@@ -9,7 +9,7 @@ app.use(cors({
 
 app.get('/experiencia-laboral', function(req, res) {
   experiencia_laboral = { 
-    "experiencia_laboral": [
+    "experiencia-laboral": [
       {
         "empresa": "Parroquia Santa Rita",
         "descripcion": "Lider animador en la parroquia santa rita, donde cuidaba un grupo de 30 niños",
