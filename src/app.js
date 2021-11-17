@@ -1,11 +1,20 @@
 var express = require('express');
 var cors = require('cors');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 var app = express();
+app.use(cookieParser());
 
 app.use(cors({
     origin: '*'
 }));
+
+app.use(express.urlencoded({
+  extended: true
+}));
+
+var jsonParser = bodyParser.json();
 
 app.get('/experiencia-laboral', function(req, res) {
   experiencia_laboral = { 
@@ -34,6 +43,19 @@ app.get('/experiencia-laboral', function(req, res) {
     ]
   }
   res.send(experiencia_laboral);
+});
+
+app.post('/enviar-formulario', jsonParser, function(req, res) {
+  const name = req.body.name;
+  if (!name) {
+    return res.status(400).send("Falta el nombre de contacto");
+  }
+  res.cookie("PW_2021-CV_Contacto", name);
+  res.send("Something");
+});
+
+app.post("/*", jsonParser, function(req, res) {
+  res.status(404).send("404 - No fue encontrado");
 });
 
 app.listen(process.env.PORT || 3000, (a) => {
