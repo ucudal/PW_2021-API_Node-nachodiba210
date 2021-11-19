@@ -47,7 +47,7 @@ describe("Endpoint /enviar-formulario (POST)", function() {
   it("debería considerar CORS", function(done) {
     supertest(app)
       .post("/enviar-formulario")
-      .send({nombreContacto: "Pepito Gonzalez" })
+      .send({name: "Pepito Gonzalez" })
       .expect(200)
       .end(function(err, res) {
         if (err) throw done(err);
@@ -59,7 +59,7 @@ describe("Endpoint /enviar-formulario (POST)", function() {
   it("debería retornar un texto como mensaje de éxito", function(done) {
     supertest(app)
       .post("/enviar-formulario")
-      .send({nombreContacto: "Pepito Gonzalez" })
+      .send({name: "Pepito Gonzalez" })
       .expect(200)
       .end(function(err, res) {
         if (err) throw done(err);
@@ -82,11 +82,12 @@ describe("Endpoint /enviar-formulario (POST)", function() {
   it("debería retornar la cookie PW_2021-CV_Contacto con el nombre del contacto", function(done) {
     supertest(app)
       .post("/enviar-formulario")
-      .send({nombreContacto: "Pepito Gonzalez" })
+      .send({name: "Pepito Gonzalez"})
       .expect(200)
       .end(function(err, res) {
         if (err) throw done(err);
         var cookies = cookie.parse(res.headers['set-cookie'][0]);
+        console.log(cookies);
         assert.equal(cookies["PW_2021-CV_Contacto"], "Pepito Gonzalez");
         done();
       });
